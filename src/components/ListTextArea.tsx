@@ -1,25 +1,42 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import "../App";
 
 const ListTextArea = () => {
   const [tasks, setTasks] = useState<string[]>([]); 
   const inputRef = useRef<HTMLInputElement | null>(null); 
+  let [taskQuantity, setTaskQuantity] = useState(0);
+
+  const incrementTaskQuantity = () =>{
+    setTaskQuantity(taskQuantity+=1)
+  }
+  const decrementTaskQuantity = () =>{
+    setTaskQuantity(taskQuantity-=1)
+  }
 
   const appendTask = () => {
     const inputValue = inputRef.current?.value || ""; 
-    if (inputValue.trim() === "") return; // 
+    if (inputValue.trim() === "") return;  
 
     setTasks([...tasks, inputValue]); 
-    inputRef.current!.value = ""; // 
+    inputRef.current!.value = ""; 
+    incrementTaskQuantity();
+    console.log(taskQuantity);
+    
   };
 
   const removeTask = (index: number) => {
-    setTasks(tasks.filter((_, i) => i !== index)); 
+    setTasks(tasks.filter((_, i) => i !== index));
+    decrementTaskQuantity();
+    console.log(taskQuantity);
+
+
   };
 
   return (
     <>
       <main>
+        <h3>Tareas Pendientes: {taskQuantity}</h3>
+
         <div style={{ display: "flex" }}>
           <input
             ref={inputRef}
@@ -33,6 +50,8 @@ const ListTextArea = () => {
           </button>
         </div>
         <br />
+
+
         <section id="taskZoneID">
           {tasks.length === 0 ? (
             <p>No hay tareas pendientes</p>
@@ -60,3 +79,12 @@ const ListTextArea = () => {
 };
 
 export default ListTextArea;
+
+
+
+
+
+
+
+
+
