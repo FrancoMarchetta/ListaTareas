@@ -18,7 +18,7 @@ function App() {
       <div id="MainBox">
 
          <strong style={{fontSize:"40px"}}>
-         Lista de Tareas
+         Task-Bortha...
         </strong> 
 
 

@@ -42,20 +42,20 @@ const ListTextArea = () => {
   return (
     <>
       <main>
-        <h3>Tareas Pendientes: {taskQuantity}</h3>
+        <h3>Pending Tasks: {taskQuantity}</h3>
 
         <div style={{ display: "flex" }}>
           <input style={{
             fontSize:"larger"
           }}
             ref={inputRef}
-            placeholder="¿Qué hay que hacer?"
+            placeholder="What are we doing?"
             className="input"
             name="text"
             type="text"
           />
           <button onClick={appendTask} id="addButton" className="addButton">
-            Agregar
+            Add
           </button>
         </div>
         <br />
@@ -63,7 +63,7 @@ const ListTextArea = () => {
 
         <section id="taskZoneID">
           {tasks.length === 0 ? (
-            <p>No hay tareas pendientes</p>
+            <p>Nothing to do yet</p>
           ) : (
             tasks.map((task, index) => (
               <div
