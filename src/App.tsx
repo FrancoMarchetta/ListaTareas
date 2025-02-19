@@ -10,10 +10,18 @@ function App() {
   return (
     <>
     <br />
-    <main id="MainBox">
+
+    <main style={{
+      display:"flex",
+      placeContent:"center"
+    }} >
+      <div id="MainBox">
+
          <strong style={{fontSize:"40px"}}>
          Lista de Tareas
         </strong> 
+
+
 
 
         <div style={{marginTop:"3rem", display:"flex", margin:"70px 0px 70px 40px"}}>
@@ -21,6 +29,7 @@ function App() {
         </div>
 
     
+      </div>
         
 
     </main>
