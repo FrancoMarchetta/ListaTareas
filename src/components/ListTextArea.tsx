@@ -1,10 +1,17 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import "../App";
 
 const ListTextArea = () => {
-  const [tasks, setTasks] = useState<string[]>([]); 
+  const [tasks, setTasks] = useState<string[]>(() => {
+    const savedTasks = localStorage.getItem("tasks");
+    return savedTasks ? JSON.parse(savedTasks) : [];
+  });
   const inputRef = useRef<HTMLInputElement | null>(null); 
-  let [taskQuantity, setTaskQuantity] = useState(0);
+  let [taskQuantity, setTaskQuantity] = useState(tasks.length);
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   const incrementTaskQuantity = () =>{
     setTaskQuantity(taskQuantity+=1)
@@ -16,7 +23,7 @@ const ListTextArea = () => {
   const appendTask = () => {
     const inputValue = inputRef.current?.value || ""; 
     if (inputValue.trim() === "") return;  
-
+    
     setTasks([...tasks, inputValue]); 
     inputRef.current!.value = ""; 
     incrementTaskQuantity();
