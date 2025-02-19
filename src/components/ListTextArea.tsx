@@ -38,7 +38,9 @@ const ListTextArea = () => {
         <h3>Tareas Pendientes: {taskQuantity}</h3>
 
         <div style={{ display: "flex" }}>
-          <input
+          <input style={{
+            fontSize:"larger"
+          }}
             ref={inputRef}
             placeholder="¿Qué hay que hacer?"
             className="input"
