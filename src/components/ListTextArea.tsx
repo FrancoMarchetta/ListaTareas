@@ -48,6 +48,13 @@ const ListTextArea = () => {
           <input style={{
             fontSize:"larger"
           }}
+          onKeyDown={(e)=>{
+            if(e.key == "Enter"){
+              appendTask();
+              // console.log("enter");
+              
+            }
+          }}
             ref={inputRef}
             placeholder="What are we doing?"
             className="input"
