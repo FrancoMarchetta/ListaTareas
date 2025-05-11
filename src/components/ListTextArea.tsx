@@ -45,6 +45,7 @@ const ListTextArea = () => {
         <h3>Pending Tasks: {taskQuantity}</h3>
 
         <div style={{ display: "flex" }}>
+
           <input style={{
             fontSize:"larger"
           }}
@@ -61,6 +62,7 @@ const ListTextArea = () => {
             name="text"
             type="text"
           />
+
           <button onClick={appendTask} id="addButton" className="addButton">
             Add
           </button>
